@@ -10,4 +10,17 @@ export class TodosService {
     this.todos.push(newTodo);
     return newTodo;
   }
+
+  getTodos(): Todo[] {
+    return this.todos;
+  }
+
+  getTodoById(id: string): Todo {
+    return this.todos.find( todo => todo.id === id );
+  }
+
+  deleteTodo(id: string) {
+    const index = this.todos.findIndex( todo => todo.id === id);
+    this.todos.splice(index, 1);
+  }
 }
